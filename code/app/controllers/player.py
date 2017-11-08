@@ -22,3 +22,7 @@ class Create(Resource):
         return {"player": player, "sesion" : sesion}, 200
         
 
+class Validation(Resource):
+
+    def post(self):
+        

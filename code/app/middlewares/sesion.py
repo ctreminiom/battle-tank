@@ -18,5 +18,5 @@ def create_sesion(player):
     return sesion
 
 
-def validate_sesion():
-    print("asdad")
+def validate_sesion(sesion):
+    print("dddi")
