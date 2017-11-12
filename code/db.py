@@ -16,12 +16,18 @@ class Player(Document):
     type_ = StringField(required=True, max_length=1)
 
 
-class Sesion(Document):
+class Game(Document):
     uuid_    = StringField(required=True, max_length=6)
     player01 = StringField(required=True, max_length=4)
     player02 = StringField(required=False, max_length=4)
     full     = BooleanField(required=False)
     winner   = StringField(required=False, max_length=4)
+
+class Movement(Document):
+    uuid_    = StringField(required=True, max_length=6)
+    seconds_ = StringField(required=True, max_length=1)
+    damage_  = StringField(required=True, max_length=3)
+    
     
     
     

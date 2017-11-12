@@ -14,6 +14,5 @@ api.add_resource(Move, '/move')
 api.add_resource(Create, '/player/create')
 
 
-
 if __name__ == '__main__':
     app.run(debug=True)

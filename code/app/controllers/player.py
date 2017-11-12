@@ -20,9 +20,5 @@ class Create(Resource):
         sesion = create_sesion(player["uuid"])
 
         return {"player": player, "sesion" : sesion}, 200
-        
 
-class Validation(Resource):
-
-    def post(self):
         
