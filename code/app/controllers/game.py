@@ -13,7 +13,7 @@ class Create(Resource):
 
         print(game)
 
-        return game, 201
+        return data, 201
 
 
 
