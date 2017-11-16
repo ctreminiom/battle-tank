@@ -17,10 +17,13 @@ def init(data):
 def findByID(uuid):
     return Game.objects(uuid_=uuid).first()
 
-def updateWinner(uuid, player):
+def updateLife(uuid, Life):
     game = Game.objects(uuid_=uuid).first()
 
     player.winner = player
     player.save()
 
     return player
+
+
+

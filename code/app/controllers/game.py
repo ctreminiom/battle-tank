@@ -3,7 +3,7 @@
 
 from flask_restful import Resource
 from flask import request
-from app.middlewares.game import init
+from app.middlewares.game import init, updateLife
 
 
 class Create(Resource):
@@ -14,6 +14,22 @@ class Create(Resource):
         print(game)
 
         return data, 201
+
+
+
+class Life(Resource):
+    def put(self):
+        data = request.get_json(silent=True)
+
+        uuid = data["uuid"]
+        life = data["life"]
+
+        game = updateLife(uuid, life)
+
+        print(game)
+
+        return data, 200
+
 
 
 
