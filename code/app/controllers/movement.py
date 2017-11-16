@@ -2,7 +2,10 @@
 # -*- coding: utf-8 -*-
 
 from flask_restful import Resource
+from flask import request
 from random import randrange
+
+data = {}
 
 class Move(Resource):
     def get(self):
@@ -14,3 +17,10 @@ class Move(Resource):
         time = allowed_time[randrange(4)]
 
         return {"movement" : movement, "time" : time}, 200
+
+    def post(self):
+        data = request.get_json(silent=True)
+
+        data
+        game_rounds.append(round_data)
+        return round_data, 201
