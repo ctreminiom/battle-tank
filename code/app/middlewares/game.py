@@ -10,6 +10,8 @@ def init(data):
 
     game = Game(uuid_= data["uuid_game"], player01= player01, player02= player02, winner= "Nothing")
 
+    game.save()
+    
     return game
 
 def findByID(uuid):
