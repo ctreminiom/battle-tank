@@ -8,8 +8,7 @@ def init(data):
     player01 = create(data["uuid_player01"], data["type_player01"], data["life_player01"])
     player02 = create(data["uuid_player02"], data["type_player02"], data["life_player02"])
 
-    game = Game(uuid_= data["uuid_game"], player01= player01, player02= player02, winner= "Nothing")
-
+    game = Game(uuid_= data["uuid_game"], players=[player01, player02], winner= "Nothing")
     game.save()
     
     return game
@@ -17,13 +16,41 @@ def init(data):
 def findByID(uuid):
     return Game.objects(uuid_=uuid).first()
 
-def updateLife(uuid, Life):
-    game = Game.objects(uuid_=uuid).first()
 
-    player.winner = player
-    player.save()
 
-    return player
+
+
+
+def updateLife(sesion_uuid, player_uuid, life):
+    game = Game.objects(uuid_=sesion_uuid).first()
+
+    player01 = game.players[0].uuid_
+    player02 = game.players[1].uuid_
+
+    if player01 == player_uuid:
+        game.players[0].life_ = life
+        game.save()
+
+    if player02 == player_uuid:
+        game.players[1].life_ = life
+        game.save()
+
+
+    
+
+
+    
+
+
+
+
+
+
+
+
+    
+
+
 
 
 

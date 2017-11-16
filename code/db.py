@@ -5,7 +5,7 @@ from config import config
 from mongoengine import *
 
 def aa():
-    connect('project1',host=config.DB_HOST, port=config.DB_PORT)
+    connect('documentos',host=config.DB_HOST, port=config.DB_PORT)
 
     
     

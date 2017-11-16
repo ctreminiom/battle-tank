@@ -17,18 +17,27 @@ class Create(Resource):
 
 
 
-class Life(Resource):
-    def put(self):
-        data = request.get_json(silent=True)
+#class Life(Resource):
+##    def put(self):
+  #      data = request.get_json(silent=True)
+#
+ #       uuid = data["uuid"]
+  #      life = data["life"]
 
-        uuid = data["uuid"]
-        life = data["life"]
+   #     game = updateLife(uuid, life)
 
-        game = updateLife(uuid, life)
+    #    print(game)
 
-        print(game)
+     #   return data, 200
+
+
+class Prueba(Resource):
+    def get(self, uuid):
+        data = updateLife(uuid)
 
         return data, 200
+
+
 
 
 
