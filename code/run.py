@@ -3,15 +3,15 @@
 
 from flask import Flask
 from flask_restful import Api
-from app.controllers.movement import Move
-from app.controllers.player import Create
-
+from app.controllers.game import Create
 
 app = Flask(__name__)
 api = Api(app)
 
-api.add_resource(Move, '/move')
-api.add_resource(Create, '/player/create')
+def addPrefix(route):
+    return '/api/v1.0/{}'.format(route)
+
+api.add_resource(Create, addPrefix('game/init'))
 
 
 if __name__ == '__main__':
