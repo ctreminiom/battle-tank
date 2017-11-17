@@ -11,6 +11,7 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 api = Api(app)
+CORS(api)
 
 init_db()
 
