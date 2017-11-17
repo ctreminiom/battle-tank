@@ -13,3 +13,16 @@ def create(data):
     )
 
     movement.save()
+
+
+
+def sendMovement():
+    data = []
+
+    data.append("234")
+    data.append("120")
+
+    return data
+    
+    
+

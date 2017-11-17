@@ -3,7 +3,7 @@
 
 from flask_restful import Resource
 from flask import request
-from app.middlewares.movement import create
+from app.middlewares.movement import create, sendMovement
 
 
 class Movement(Resource):
@@ -12,8 +12,11 @@ class Movement(Resource):
 
         create(data)
 
-        print("sdasd")
-        return data, 200
+        new_movement = sendMovement()
+
+        json = {"x": new_movement[0], "y": new_movement[1]}
+
+        return json, 200
 
 
         ## Tengo el uuid_player, x , y
