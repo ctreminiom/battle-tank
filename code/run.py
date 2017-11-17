@@ -4,6 +4,8 @@
 from flask import Flask
 from flask_restful import Api
 from app.controllers.game import Create, Prueba
+
+from app.controllers.movement import Movement
 from db import aa
 
 app = Flask(__name__)
@@ -18,6 +20,7 @@ api.add_resource(Create, addPrefix('game/init/'))
 
 api.add_resource(Prueba, addPrefix('game/init/prueba/<string:uuid>'))
 
+api.add_resource(Movement, addPrefix('game/get/movement'))
 
 
 if __name__ == '__main__':

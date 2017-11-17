@@ -5,7 +5,6 @@ from flask_restful import Resource
 from flask import request
 from app.middlewares.game import init, updateLife
 
-
 class Create(Resource):
     def post(self):
         data = request.get_json(silent=True)
@@ -15,20 +14,19 @@ class Create(Resource):
 
         return data, 201
 
+class Life(Resource):
+    def put(self):
+        data = request.get_json(silent=True)
 
+        uuid = data["uuid"]
+        x = data["x"]
+        y = data["y"]
 
-#class Life(Resource):
-##    def put(self):
-  #      data = request.get_json(silent=True)
-#
- #       uuid = data["uuid"]
-  #      life = data["life"]
+        game = updateLife(uuid, x, y)
 
-   #     game = updateLife(uuid, life)
+        print(game)
 
-    #    print(game)
-
-     #   return data, 200
+        return data, 200
 
 
 class Prueba(Resource):
@@ -36,9 +34,6 @@ class Prueba(Resource):
         data = updateLife(uuid)
 
         return data, 200
-
-
-
 
 
 

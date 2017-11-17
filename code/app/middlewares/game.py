@@ -17,8 +17,11 @@ def findByID(uuid):
     return Game.objects(uuid_=uuid).first()
 
 
-
-
+def validateLife(life, player_uuid, sesion_uuid):
+    if life == 0:
+        game = Game.objects(uuid_=sesion_uuid).first()
+        game.winner = player_uuid
+        game.save()
 
 
 def updateLife(sesion_uuid, player_uuid, life):
@@ -34,6 +37,8 @@ def updateLife(sesion_uuid, player_uuid, life):
     if player02 == player_uuid:
         game.players[1].life_ = life
         game.save()
+
+    validateLife(life, player_uuid, sesion_uuid)
 
 
     
