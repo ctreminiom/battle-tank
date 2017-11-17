@@ -18,9 +18,9 @@ class Life(Resource):
     def put(self):
         data = request.get_json(silent=True)
 
-        uuid = data["uuid"]
-        x = data["x"]
-        y = data["y"]
+        uuid = data["sesion_uuid"]
+        x = data["player_uuid"]
+        y = data["life"]
 
         game = updateLife(uuid, x, y)
 
