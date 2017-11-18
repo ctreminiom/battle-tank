@@ -12,8 +12,11 @@ from db import init_db
 from flask_cors import CORS
 
 app = Flask(__name__)
+
+CORS(app)
+
+app.config['CORS_HEADERS'] = 'Content-Type'
 api = Api(app)
-CORS(api)
 
 init_db()
 
@@ -26,7 +29,7 @@ api.add_resource(Prueba, addPrefix('game/init/prueba/<string:uuid>'))
 
 api.add_resource(Movement, addPrefix('game/get/movement'))
 
-api.add_resource(Life, addPrefix('game/put/life'))
+api.add_resource(Life, addPrefix('game/put/life/'))
 
 
 

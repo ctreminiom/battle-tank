@@ -16,14 +16,6 @@ def init(data):
 def findByID(uuid):
     return Game.objects(uuid_=uuid).first()
 
-
-def validateLife(life, player_uuid, sesion_uuid):
-    if life == 0:
-        game = Game.objects(uuid_=sesion_uuid).first()
-        game.winner = player_uuid
-        game.save()
-
-
 def updateLife(sesion_uuid, player_uuid, life):
     game = Game.objects(uuid_=sesion_uuid).first()
 
@@ -31,14 +23,24 @@ def updateLife(sesion_uuid, player_uuid, life):
     player02 = game.players[1].uuid_
 
     if player01 == player_uuid:
+
+        if life == "0":
+            game.winner = player01
+
         game.players[0].life_ = life
         game.save()
 
+        return life
+
     if player02 == player_uuid:
+
+        if life == "0":
+            game.winner = player01
+        
         game.players[1].life_ = life
         game.save()
 
-    validateLife(life, player_uuid, sesion_uuid)
+        return life
 
 
     

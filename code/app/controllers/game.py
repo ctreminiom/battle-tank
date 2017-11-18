@@ -9,9 +9,6 @@ class Create(Resource):
     def post(self):
         data = request.get_json(silent=True)
         game = init(data)
-
-        print(game)
-
         return data, 201
 
 class Life(Resource):
@@ -24,9 +21,7 @@ class Life(Resource):
 
         game = updateLife(uuid, x, y)
 
-        print(game)
-
-        return data, 200
+        return {"life": game}, 200
 
 
 class Prueba(Resource):
@@ -34,7 +29,6 @@ class Prueba(Resource):
         data = updateLife(uuid)
 
         return data, 200
-
 
 
 
