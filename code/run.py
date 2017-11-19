@@ -24,14 +24,11 @@ def addPrefix(route):
     return '/api/v1.0/{}'.format(route)
 
 api.add_resource(Create, addPrefix('game/init/'))
-
-api.add_resource(Prueba, addPrefix('game/init/prueba/<string:uuid>'))
-
-api.add_resource(Movement, addPrefix('game/get/movement'))
-
+api.add_resource(Prueba, addPrefix('game/init/prueba/<string:uuid>/'))
 api.add_resource(Life, addPrefix('game/put/life/'))
 
 
+api.add_resource(Movement, addPrefix('game/request/movement/'))
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='127.0.0.1')

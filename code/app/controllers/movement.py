@@ -10,6 +10,12 @@ class Movement(Resource):
     def post(self):
         data = request.get_json(silent=True)
 
+        game_uuid = data["game_uuid"]
+        player_uuid= data["player_uuid"]
+        player_x = data["x"]
+        player_y = data["y"]
+        
+
         create(data)
 
         new_movement = sendMovement()
@@ -30,6 +36,9 @@ class Movement(Resource):
         ## 4. Regresar la coordenada X del movimiento, la coordenada Y del movimiento
         ## 5. Regresar el tipo de disparo ----> 10, 50, 100
         ## 6. Despues disparar
+
+
+
 
 
 

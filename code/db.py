@@ -5,7 +5,7 @@ from config import config
 from mongoengine import *
 
 def init_db():
-    connect('pruebaAJAX',host=config.DB_HOST, port=config.DB_PORT)
+    connect('prueba',host=config.DB_HOST, port=config.DB_PORT)
 
     
     
