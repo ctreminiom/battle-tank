@@ -1,4 +1,3 @@
-
 Proyecto #1 - Servicios Web
 ===================
 
@@ -33,6 +32,25 @@ Cuando un jugador colisiona con una bala, el cliente realiza un **PUT** al serve
 
 Para este proyecto, se crearon 3 modelos, el modelo **Game**, **Player** y **Movement**. 
 
-> - **Game** ---> API
-> - **Pymongo --- Mongoengine** ----> ORM para MongoDB que facilita la creacion de Modelos y Queries.
-> - Python 3.5
+> - **Game** ---> Este modelo es donde se almacenan los jugadores que van a jugar la partida, este modelo tiene un documento embebido llamado player, se crean dos jugadores con sus respectivas caracteristicas.
+> 
+> 
+![Game Model](https://lh3.googleusercontent.com/-yCLvhARsvsI/WhJlb8W-TII/AAAAAAAAjCE/FxnQNOhDFTUS5MNbSOb5WnIgDeFLQKLHQCLcBGAs/s0/Screenshot+at+2017-11-19+23-15-52.png "Game Model")
+
+> - **Player** ----> Este modelo es el documento embebido que existe en el modelo **Game**
+> 
+> ![enter image description here](https://lh3.googleusercontent.com/-JlJhFTnJY7M/WhJmGCYSyhI/AAAAAAAAjCU/39tsYVi0Va4eXwE_exNdhiwT1PBT02VHACLcBGAs/s0/Screenshot+at+2017-11-19+23-19-34.png)
+> - **Movement** ----> Este modelo contiene los movimiento que se realizan los jugadores que estan en la sesion de juego. Dicho modelo tiene una relacion con el player y con la sesion.
+> 
+> ![enter image description here](https://lh3.googleusercontent.com/-_cORekrhGnY/WhJmqFwXkWI/AAAAAAAAjCk/YYD6YXRRd_QeqILk8-XNEqlRIFdX1F5SwCLcBGAs/s0/Screenshot+at+2017-11-19+23-22-33.png)
+
+
+#### <i class="icon-pencil"></i> Instalacion
+
+> **Paso #1** --> git clone https://github.com/ctreminiom/battle-tank.git
+> **Paso #2** --> virtualenv env
+> **Paso #3** --> source env/bin/activate
+> **Paso #4** --> pip3 install -r requirements.txt
+> **Paso #5** --> cd code/
+> **Paso #6** --> vim **db.py** (cambiar la variables de entorno)
+> **Paso #7 ** --> **python3 run.py**
