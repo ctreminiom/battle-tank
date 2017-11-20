@@ -48,9 +48,15 @@ Para este proyecto, se crearon 3 modelos, el modelo **Game**, **Player** y **Mov
 #### <i class="icon-pencil"></i> Instalacion
 
 > **Paso #1** --> git clone https://github.com/ctreminiom/battle-tank.git
+
 > **Paso #2** --> virtualenv env
+
 > **Paso #3** --> source env/bin/activate
+
 > **Paso #4** --> pip3 install -r requirements.txt
+
 > **Paso #5** --> cd code/
+
 > **Paso #6** --> vim **db.py** (cambiar la variables de entorno)
+
 > **Paso #7 ** --> **python3 run.py**
