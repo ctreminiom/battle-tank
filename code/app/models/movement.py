@@ -6,4 +6,5 @@ class Movement(Document):
     player_uuid_ = StringField(required=True, max_length=20) 
     x_ = StringField(required=True, max_length=10)
     y_ = StringField(required=True, max_length=10)
+    direction = StringField(required=True, max_length=10)
     log_ = DateTimeField(required=True)
