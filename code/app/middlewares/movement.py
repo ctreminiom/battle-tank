@@ -2,7 +2,7 @@ from mongoengine import *
 from app.models.movement import Movement
 from app.models.game import Game
 from datetime import datetime
-from random 
+import random
 
 def create(data):
 
