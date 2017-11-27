@@ -35,7 +35,7 @@ def updateLife(sesion_uuid, player_uuid, life):
     if player02 == player_uuid:
 
         if life == "0":
-            game.winner = player01
+            game.winner = player02
         
         game.players[1].life_ = life
         game.save()
