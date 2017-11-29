@@ -1,6 +1,6 @@
 from mongoengine import *
-from app.models.movement import Movement
-from app.models.game import Game
+from app.models.movementModel import Movement
+from app.models.gameModel import Game
 from datetime import datetime
 import random
 

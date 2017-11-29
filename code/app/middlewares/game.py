@@ -1,7 +1,9 @@
 from mongoengine import *
 
-from app.models.player import Player
-from app.models.game import Game
+
+
+from app.models.playerModel import Player
+from app.models.gameModel import Game
 from app.middlewares.player import create
 
 def init(data):
@@ -13,8 +15,6 @@ def init(data):
     
     return game
 
-def findByID(uuid):
-    return Game.objects(uuid_=uuid).first()
 
 def updateLife(sesion_uuid, player_uuid, life):
     game = Game.objects(uuid_=sesion_uuid).first()

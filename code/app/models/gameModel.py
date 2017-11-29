@@ -1,5 +1,5 @@
 from mongoengine import *
-from app.models.player import Player
+from app.models.playerModel import Player
 
 class Game(Document):
     uuid_    = StringField(required=True, max_length=20)

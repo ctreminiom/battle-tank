@@ -1,5 +1,5 @@
 from mongoengine import *
-from app.models.player import Player
+from app.models.playerModel import Player
 
 def create(uuid, type, life):
     player = Player(uuid_= uuid, type_= type, life_=life)
