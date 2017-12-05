@@ -11,7 +11,7 @@ class Register(Resource):
         return {"message": create(data)}
 
 class Login(Resource):
-    def post(self):
+    def get(self):
         auth = request.authorization
         message = validate(auth)
 

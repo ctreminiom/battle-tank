@@ -20,8 +20,12 @@ def create(data):
 
         hashed_password = generate_password_hash(data['password'], method='pbkdf2:sha256')
         public_id = str(uuid.uuid4())
-        
-        user = User(public_id=public_id, username=data['username'], password= hashed_password)
+
+        user = User(public_id = public_id,
+                    firstName = data['firstName'],
+                    lastName = data['lastName'],
+                    username = data['username'],
+                    password = hashed_password)
         user.save()
 
         return "New user created"
@@ -51,12 +55,9 @@ def validate(auth):
         response['status'] = 200
 
         return response
-    
+
     else:
         response['message'] = "Username or password incorrect"
         response['status']  = 401
 
         return response
-
-
-

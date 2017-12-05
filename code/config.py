@@ -3,8 +3,8 @@
 
 class config:
     APP_NAME = 'ctreminio'
-    
-    DB_HOST = "67.205.150.30"
+
+    DB_HOST = "104.236.165.149"
     DB_PORT = 27017
     DB_NAME = 'syba'
     DB_USER = 'service'

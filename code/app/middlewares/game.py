@@ -1,7 +1,5 @@
 from mongoengine import *
 
-
-
 from app.models.playerModel import Player
 from app.models.gameModel import Game
 from app.middlewares.player import create
@@ -12,7 +10,7 @@ def init(data):
 
     game = Game(uuid_= data["uuid_game"], players=[player01, player02], winner= "Nothing")
     game.save()
-    
+
     return game
 
 
@@ -36,28 +34,8 @@ def updateLife(sesion_uuid, player_uuid, life):
 
         if life == "0":
             game.winner = player02
-        
+
         game.players[1].life_ = life
         game.save()
 
         return life
-
-
-    
-
-
-    
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
