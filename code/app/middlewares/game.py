@@ -3,7 +3,8 @@ from app.models.playerModel import Player
 from app.models.gameModel import Game
 from app.middlewares.player import format
 
-import uuid
+import uuid, json
+
 
 def create(public_id):
 
@@ -43,30 +44,22 @@ def join(public_id, game_uuid):
 
 
 def get_sessions():
-    return Game.objects(enable = True)
-    
+    game = Game.objects(enable = True)
 
+    data = [{
+        'uuid': sesion.uuid_,
+        'players': {
+            'user_id_': sesion.players[0].user_id_,
+            'life_': sesion.players[0].life_,
+            'lifes_': sesion.players[0].lifes_,
+            'type_': sesion.players[0].type_
+        },
+        'finished': sesion.finished,
+        'enable': sesion.enable,
+        'winner': sesion.winner
+    } for sesion in Game.objects(enable = True)]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    return data
 
 def updateLife(sesion_uuid, player_uuid, life):
     game = Game.objects(uuid_=sesion_uuid).first()

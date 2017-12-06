@@ -7,6 +7,7 @@ from flask import request
 from app.middlewares.game import create, updateLife, join, get_sessions
 from app.middlewares.security import require
 
+import json
 
 class Create(Resource):
     method_decorators = [require]
@@ -30,7 +31,10 @@ class Join(Resource):
 class Report(Resource):
     method_decorators = [require]
     def get(self, user):
-        return {"sessions": get_sessions()}, 200
+
+        data = get_sessions()
+
+        return data, 200
 
 
 
