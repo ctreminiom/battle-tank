@@ -1,13 +1,13 @@
 from mongoengine import *
 from app.models.playerModel import Player
 from app.models.gameModel import Game
-from app.middlewares.player import create
+from app.middlewares.player import format
 
 import uuid
 
-def init(public_id):
+def create(public_id):
 
-    player = create(public_id, '1')
+    player = format(public_id, '1')
 
     game = Game(
         uuid_ = str(uuid.uuid4()),
@@ -28,7 +28,7 @@ def init(public_id):
 
 def join(public_id, game_uuid):
 
-    player = create(public_id, '2')
+    player = format(public_id, '2')
 
     game = Game.objects(uuid_ = game_uuid).first()
     game.players.append(player)
@@ -40,6 +40,30 @@ def join(public_id, game_uuid):
     response['status'] = 201
 
     return response
+
+
+def get_sessions():
+    return Game.objects(enable = True)
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

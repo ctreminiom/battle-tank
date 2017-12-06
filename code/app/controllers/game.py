@@ -4,7 +4,7 @@
 from flask_restful import Resource
 from flask import request
 
-from app.middlewares.game import init, updateLife, join
+from app.middlewares.game import create, updateLife, join, get_sessions
 from app.middlewares.security import require
 
 
@@ -12,10 +12,9 @@ class Create(Resource):
     method_decorators = [require]
     def post(self, user):
 
-        game = init(user.public_id)
+        game = create(user.public_id)
 
-        return {"message": game['response']}, game['status']
-
+        return {"message": game['message']}, game['status']
 
 
 class Join(Resource):
@@ -26,6 +25,13 @@ class Join(Resource):
         game = join(user.public_id, data['game_uuid'])
 
         return {"message": game['response']}, game['status']
+
+
+class Report(Resource):
+    method_decorators = [require]
+    def get(self, user):
+        return {"sessions": get_sessions()}, 200
+
 
 
 

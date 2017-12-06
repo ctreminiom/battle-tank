@@ -5,8 +5,8 @@ from mongoengine import *
 
 
 class User(Document):
-    public_id = StringField(required=True, unique=True, max_length=50)
-    firstName =  StringField(required=True, unique=True, max_length=50)
-    lastName =  StringField(required=True, unique=True, max_length=50)
-    username =  StringField(required=True, unique=True, max_length=50)
+    public_id = StringField(required=True, unique=True, max_length=100)
+    firstName =  StringField(required=True, unique=True, max_length=100)
+    lastName =  StringField(required=True, unique=True, max_length=100)
+    username =  StringField(required=True, unique=True, max_length=100)
     password = StringField(required=True, max_length=100)

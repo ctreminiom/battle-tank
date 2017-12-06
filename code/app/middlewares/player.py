@@ -3,7 +3,7 @@ from app.models.playerModel import Player
 
 import uuid
 
-def create(public_id, player_type):
+def format(public_id, player_type):
 
     data = create_the_default_data()
 
