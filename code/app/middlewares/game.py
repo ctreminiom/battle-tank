@@ -1,17 +1,47 @@
 from mongoengine import *
-
 from app.models.playerModel import Player
 from app.models.gameModel import Game
 from app.middlewares.player import create
 
-def init(data):
-    player01 = create(data["uuid_player01"], data["type_player01"], data["life_player01"])
-    player02 = create(data["uuid_player02"], data["type_player02"], data["life_player02"])
+import uuid
 
-    game = Game(uuid_= data["uuid_game"], players=[player01, player02], winner= "Nothing")
+def init(public_id):
+
+    player = create(public_id, '1')
+
+    game = Game(
+        uuid_ = str(uuid.uuid4()),
+        players = [player],
+        finished = False,
+        enable = True,
+        winner = "Nothing"
+    )
+
     game.save()
 
-    return game
+    response = {}
+    response['message'] = "Game sesion created"
+    response['status'] = 201
+
+    return response
+
+
+def join(public_id, game_uuid):
+
+    player = create(public_id, '2')
+
+    game = Game.objects(uuid_ = game_uuid).first()
+    game.players.append(player)
+
+    game.save()
+
+    response = {}
+    response['message'] = "Game sesion created"
+    response['status'] = 201
+
+    return response
+
+
 
 
 def updateLife(sesion_uuid, player_uuid, life):

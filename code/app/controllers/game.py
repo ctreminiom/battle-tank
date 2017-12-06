@@ -3,13 +3,34 @@
 
 from flask_restful import Resource
 from flask import request
-from app.middlewares.game import init, updateLife
+
+from app.middlewares.game import init, updateLife, join
+from app.middlewares.security import require
+
 
 class Create(Resource):
-    def post(self):
+    method_decorators = [require]
+    def post(self, user):
+
+        game = init(user.public_id)
+
+        return {"message": game['response']}, game['status']
+
+
+
+class Join(Resource):
+    method_decorators = [require]
+    def post(self, user):
         data = request.get_json(silent=True)
-        game = init(data)
-        return data, 200
+
+        game = join(user.public_id, data['game_uuid'])
+
+        return {"message": game['response']}, game['status']
+
+
+
+
+
 
 
 class Life(Resource):
