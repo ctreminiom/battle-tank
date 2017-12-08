@@ -5,6 +5,8 @@ from flask_restful import Resource
 from flask import request
 
 from app.middlewares.game import create, updateLife, join, get_sessions
+
+from app.middlewares.player import get_player_uuid
 from app.middlewares.security import require
 
 import json
@@ -25,22 +27,23 @@ class Join(Resource):
 
         game = join(user.public_id, data['game_uuid'])
 
-        return {"message": game['response']}, game['status']
+        return {"message": game['message']}, game['status']
 
 
 class Report(Resource):
     method_decorators = [require]
     def get(self, user):
-
         data = get_sessions()
 
         return data, 200
 
 
-
-
-
-
+class Player_UUID(Resource):
+    method_decorators = [require]
+    def get(self, user):
+        data = get_player_uuid(user.public_id)
+        
+        return {"uuid" : data}, 200
 
 
 class Life(Resource):
@@ -54,12 +57,5 @@ class Life(Resource):
         game = updateLife(uuid, x, y)
 
         return {"life": game}, 201
-
-
-
-
-
-        
-
 
         

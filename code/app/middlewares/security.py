@@ -18,7 +18,7 @@ def encode(user):
 
     payload = {
         'public_id': user.public_id,
-        'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=30),
+        'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=60),
         'iat': datetime.datetime.utcnow(),
     }
 

@@ -6,7 +6,11 @@ from flask_restful import Api
 
 
 from app.controllers.auth import Register, Login
-from app.controllers.game import Create, Join, Report
+from app.controllers.game import Create, Join, Report, Player_UUID
+
+
+from app.controllers.movement import Movement
+
 
 
 from db import init_db
@@ -33,6 +37,17 @@ api.add_resource(Create, add_prefix('game/sesion/create'))  #/api/v1.2.0/game/se
 api.add_resource(Join, add_prefix('game/sesion/join'))      #/api/v1.2.0/game/sesion/join
 
 api.add_resource(Report, add_prefix('game/reports/get/game')) #/api/v1.2.0/game/reports/get/game
+
+
+api.add_resource(Player_UUID, add_prefix('game/reports/get/uuid')) #/api/v1.2.0/game/reports/get/uuid
+
+
+api.add_resource(Movement, add_prefix('game/post/movement')) #/api/v1.2.0/game/post/movement
+
+
+
+
+
 
 
 if __name__ == '__main__':

@@ -3,22 +3,19 @@
 
 from flask_restful import Resource
 from flask import request
-from app.middlewares.movement import create, sendMovement
+
+from app.middlewares.security import require
+from app.middlewares.movement import built
+
 
 
 class Movement(Resource):
-    def post(self):
+    method_decorators = [require]
+    def post(self, user):
         data = request.get_json(silent=True)
 
-        game_uuid = data["game_uuid"]
-        player_uuid= data["player_uuid"]
-        player_x = data["x"]
-        player_y = data["y"]
+        test = built(data)
 
-        create(data)
 
-        new_movement = sendMovement(game_uuid = data["game_uuid"], player_uuid= data["player_uuid"])
+        return test, 200
 
-        json = {"x": new_movement["x"], "y": new_movement["y"]}
-
-        return json, 200
